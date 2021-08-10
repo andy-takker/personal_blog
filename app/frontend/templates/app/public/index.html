@@ -1,0 +1,423 @@
+{%- extends "app/public/base.html" %}
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/style.css') }}">
+{% endblock %}
+
+
+{% block main %}
+  <!-- NAV -->
+  {% include 'app/public/nav_bar.html' %}
+  <!-- END nav -->
+  <!-- WELCOME PAGE -->
+  <section class="ftco-cover ftco-slant" id="section-home">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{ url_for('.static', filename='img/Frame 1.png') }}" class="carousel-image d-block w-100" alt="...">
+          <div class="carousel-caption container d-md-block">
+            <div class="row align-items-center ">
+              <div class="col-md-6 carousel-text">
+                <h1 class="ftco-heading ftco-animate"><span class="special-header">Адвокат</span></h1>
+                <h2 class="ftco-heading ftco-animate">Наталенко Владимир Анатольевич</h2>
+                <h2 id="subheading" class="h5 ftco-subheading mb-5 ftco-animate">Профессиональные советы по  <b>правовым</b> вопросам!</h2>
+              </div>
+              <div class="col-md-6 portrait">
+                <img src="{{ url_for('.static',filename='img/portrait.png') }}" class="img-portrait" alt="Фото">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END WELCOME PAGE-->
+
+    <!-- ABOUT US-->
+    <section class="ftco-section-down ftco-slant-first ftco-slant-light" id="section-aboutus">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center ftco-animate">
+            <h2 class="text-uppercase ftco-uppercase">Преимущества</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="owl-carousel ftco-owl">
+              <div class="item ftco-animate">
+                <div class="media d-block text-center ftco-media-empty  p-md-5 p-4">
+                  <svg
+                  width="6em"
+                  height="6em"
+                  fill="#408A91"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 64 64">
+                    <path d="m49 1c-7.72 0-14 6.28-14 14 0 3.011.954 5.731 2.761 8h-5.301c.954-1.063 1.54-2.462 1.54-4 0-1.32-.433-2.537-1.158-3.529l1.57-2.515-5.365-5.365-2.303 1.425c-1.056-.586-2.172-1.049-3.332-1.381l-.62-2.635h-7.584l-.62 2.634c-1.16.333-2.276.795-3.332 1.381l-2.303-1.424-5.363 5.363 1.426 2.302c-.586 1.057-1.049 2.173-1.381 3.332l-2.635.62v7.584l2.635.62c.332 1.159.795 2.275 1.381 3.332l-1.426 2.303 5.363 5.363 2.303-1.426c1.057.586 2.173 1.049 3.332 1.381l.62 2.635h.728l-4.799 17.37c-.526 1.904.526 3.913 2.347 4.479.327.102.662.152.996.152.555 0 1.105-.141 1.61-.416.848-.464 1.46-1.247 1.725-2.206l3.973-14.379h5.212l-.002 13.499c0 1.931 1.57 3.501 3.501 3.501s3.501-1.57 3.501-3.501v-15.499c0-2.757-2.243-5-5-5h-.819l.333-2h13.486v13.277l7 11.666 7-11.666v-23.683c4.458-2.537 7-6.731 7-11.594 0-7.72-6.28-14-14-14zm-31.212 29.332-.476 2.523c-4.726-.809-8.312-4.975-8.312-9.855 0-5.514 4.486-10 10-10 1.811 0 3.586.503 5.128 1.424-1.028.871-1.759 2.081-2.019 3.457-.926-.562-1.993-.881-3.109-.881-3.309 0-6 2.691-6 6 0 3.028 2.256 5.532 5.175 5.936-.163.449-.296.914-.387 1.396zm1.378-3.343c-.056.002-.11.011-.166.011-2.206 0-4-1.794-4-4s1.794-4 4-4c1.287 0 2.486.621 3.239 1.662.31 1.073.912 2.019 1.713 2.755-1.961.613-3.648 1.879-4.786 3.572zm4.834-7.989c0-2.206 1.794-4 4-4s4 1.794 4 4-1.794 4-4 4-4-1.794-4-4zm-12.242 15.964-.523-.318-1.986 1.229-3.123-3.123 1.229-1.986-.318-.524c-.736-1.215-1.281-2.528-1.617-3.904l-.146-.595-2.274-.535v-4.416l2.272-.535.146-.595c.336-1.375.881-2.689 1.617-3.904l.318-.524-1.229-1.986 3.123-3.123 1.986 1.229.523-.318c1.214-.737 2.527-1.281 3.904-1.619l.595-.146.537-2.271h4.416l.535 2.272.595.146c1.377.337 2.69.882 3.904 1.619l.523.318 1.986-1.229 3.121 3.121-.498.797c-.961-.658-2.123-1.044-3.374-1.044-.673 0-1.318.116-1.923.322-2.045-1.495-4.531-2.322-7.077-2.322-6.617 0-12 5.383-12 12 0 5.845 4.285 10.836 9.941 11.822l-.504 2.672-.181-.767-.596-.146c-1.375-.336-2.687-.881-3.902-1.617zm4.129 24.883c-.119.433-.389.782-.757.983-.327.18-.703.218-1.054.108-.8-.248-1.254-1.161-1.012-2.035l4.078-14.761c.665.814 1.57 1.414 2.618 1.684zm13.113-18.847c1.654 0 3 1.346 3 3v15.499c0 .827-.674 1.501-1.501 1.501-.828 0-1.501-.674-1.501-1.501l.002-13.499c0-1.103-.897-2-2-2h-4.687-1.313c-1.654 0-3-1.346-3-3v-1.001l1.753-9.296c.623-3.305 3.517-5.703 6.879-5.703h18.368c.268 0 .519.104.707.293.186.185.286.432.29.693l.001.022c-.005.547-.45.992-.998.992h-14.306c-1.474 0-2.718 1.055-2.959 2.507l-1.916 11.493zm15.348 9.303 1.652-1.101 3 2 3-2 1.652 1.101-2.218 3.697h-4.868zm-2.348-19.303h-12.486l.194-1.165c.08-.484.495-.835.986-.835h11.306zm2 0h4v17.131l-2-1.333-2 1.333zm8 15.798-2 1.333v-17.131h4v17.131zm2-17.798h-9c1.301 0 2.401-.839 2.816-2h6.184zm-3.939-4h-2.121l-.5-8h3.121zm-21.214 10 .333-2h12.82v2zm18.919 21h2.468l-1.234 2.057zm6.961-31h-2.662l.5-8h2.435c2.206 0 4-1.794 4-4s-1.794-4-4-4h-.182c-2.107 0-3.861 1.647-3.992 3.75l-.14 2.25h-3.371l-.141-2.25c-.131-2.103-1.885-3.75-3.992-3.75h-.182c-2.206 0-4 1.794-4 4s1.794 4 4 4h2.436l.383 6.127c-.265-.075-.537-.127-.819-.127h-4.521c-2.269-2.13-3.479-4.882-3.479-8 0-6.617 5.383-12 12-12s12 5.383 12 12c0 4.278-2.232 7.816-6.273 10zm-2.038-10 .133-2.125c.066-1.051.943-1.875 1.996-1.875h.182c1.103 0 2 .897 2 2s-.897 2-2 2zm-7.378 0h-2.311c-1.103 0-2-.897-2-2s.897-2 2-2h.182c1.054 0 1.931.824 1.996 1.875z"/>
+                  </svg>
+                  <div class="media-body">
+                    <h5 class="mt-0">Творческий подход к проблеме</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="item ftco-animate">
+                <div class="media d-block text-center ftco-media-empty  p-md-5 p-4">
+                  <svg width="6em" height="6em" viewBox="-20 -24 647.99967 647" fill="#408A91" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m443.535156 279.71875c-27.566406 0-49.917968-22.347656-49.917968-49.917969 0-27.566406 22.351562-49.917969 49.917968-49.917969 27.570313 0 49.917969 22.351563 49.917969 49.917969-.03125 27.558594-22.359375 49.886719-49.917969 49.917969zm0-79.867188c-16.539062 0-29.949218 13.410157-29.949218 29.949219 0 16.546875 13.410156 29.949219 29.949218 29.949219 16.546875 0 29.949219-13.402344 29.949219-29.949219 0-16.539062-13.402344-29.949219-29.949219-29.949219zm0 0"/>
+                    <path d="m164 279.71875c-27.566406 0-49.917969-22.347656-49.917969-49.917969 0-27.566406 22.351563-49.917969 49.917969-49.917969 27.570312 0 49.917969 22.351563 49.917969 49.917969-.03125 27.558594-22.359375 49.886719-49.917969 49.917969zm0-79.867188c-16.539062 0-29.949219 13.410157-29.949219 29.949219 0 16.546875 13.410157 29.949219 29.949219 29.949219 16.546875 0 29.949219-13.402344 29.949219-29.949219 0-16.539062-13.402344-29.949219-29.949219-29.949219zm0 0"/>
+                    <path d="m503.4375 344.035156 95.171875-86.515625c11.132813-10.363281 11.914063-27.742187 1.75-39.058593-10.164063-11.316407-27.523437-12.40625-39.015625-2.445313l-71.683594 63.703125h-100.769531l-75.140625 91.847656v-251.582031h99.835938v39.933594h164.496093l-23.957031-59.902344 23.957031-59.898437h-114.578125v-39.933594h-169.71875v371.382812l-75.132812-91.847656h-100.769532l-71.683593-63.714844c-11.5-9.980468-28.878907-8.898437-39.050781 2.425782-10.179688 11.328124-9.394532 28.71875 1.765624 39.089843l95.1875 86.515625v235.183594h-99.835937v19.96875h599.003906v-19.96875h-99.832031zm-39.933594-283.953125h85.085938l-15.96875 39.933594 15.96875 39.933594h-115.039063v-19.964844h29.953125zm-149.753906-39.933593h129.785156v79.867187h-129.785156zm-109.816406 559.070312h-29.949219v-139.765625h-19.96875v139.765625h-29.949219v-244.011719l-101.710937-92.425781c-2.863281-2.664062-3.371094-7.011719-1.207031-10.273438 1.265624-1.898437 3.289062-3.15625 5.550781-3.449218 2.261719-.296875 4.542969.402344 6.25 1.914062l77.34375 68.710938h98.894531l74.234375 90.734375c2.878906 3.4375 2.425781 8.554687-1.007813 11.4375-3.441406 2.875-8.5625 2.421875-11.4375-1.015625l-67.042968-78.191406zm179.703125 0h-159.734375v-202.660156l31.949218 37.238281c9.261719 10.789063 25.117188 12.957031 36.933594 5.050781.371094-.25.691406-.566406 1.054688-.839844v81.34375h19.964844v-81.324218c.375.285156.707031.621094 1.105468.882812 11.808594 7.851563 27.617188 5.675782 36.859375-5.082031l31.867188-37.269531zm99.832031 0h-29.949219v-139.765625h-19.96875v139.765625h-29.949219v-256.570312l-67.035156 78.222656c-2.683594 3.109375-7.269531 3.722656-10.671875 1.425781-1.90625-1.253906-3.1875-3.265625-3.515625-5.523437-.34375-2.261719.285156-4.5625 1.738282-6.328126l74.234374-90.761718h98.898438l77.328125-68.742188c1.695313-1.535156 3.988281-2.242187 6.25-1.925781 2.296875.289063 4.34375 1.574219 5.601563 3.515625 2.148437 3.246094 1.621093 7.574219-1.25 10.210938l-101.710938 92.464843zm0 0"/>
+                  </svg>
+                  <div class="media-body">
+                    <h5 class="mt-0">Опыт работы более 10&#8209;ти&nbsp;лет!</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="item ftco-animate">
+                <div class="media d-block text-center ftco-media-empty  p-md-5 p-4">
+                  <svg width="6em" height="6em" viewBox="0 0 64 64" fill="#408A91" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m50 48c0 1.103-.897 2-2 2s-2-.897-2-2v-1h-4v-2.127c1.724-.444 3-2.013 3-3.873s-1.276-3.429-3-3.873v-4.127h-12c-2.206 0-4 1.794-4 4v10 2 10c0 2.206 1.794 4 4 4h10 2 10c2.206 0 4-1.794 4-4v-12h-6zm-22-11c0-1.103.897-2 2-2h10v4h1c1.103 0 2 .897 2 2s-.897 2-2 2h-1v4h-2.127c-.444-1.724-2.013-3-3.873-3s-3.429 1.276-3.873 3h-2.127zm2 24c-1.103 0-2-.897-2-2v-10h4v-1c0-1.103.897-2 2-2s2 .897 2 2v1h4v2.127c-1.724.444-3 2.013-3 3.873s1.276 3.429 3 3.873v2.127zm21.873-12h2.127v10c0 1.103-.897 2-2 2h-10v-4h-1c-1.103 0-2-.897-2-2s.897-2 2-2h1v-4h2.127c.444 1.724 2.013 3 3.873 3s3.429-1.276 3.873-3z"/>
+                    <path d="m43 16c0-1.103.897-2 2-2s2 .897 2 2v1h6v-4c2.206 0 4-1.794 4-4s-1.794-4-4-4v-4h-12c-2.206 0-4 1.794-4 4v12h6zm-1.873-1h-2.127v-10c0-1.103.897-2 2-2h10v4h2c1.103 0 2 .897 2 2s-.897 2-2 2h-2v4h-2.127c-.444-1.724-2.013-3-3.873-3s-3.429 1.276-3.873 3z"/>
+                    <path d="m53 23c-1.654 0-3 1.346-3 3v1h2v-1c0-.552.448-1 1-1s1 .448 1 1v.172c0 .263-.106.521-.293.707l-.828.828c-.567.566-.879 1.32-.879 2.121v1.172h2v-1.172c0-.263.106-.521.293-.707l.828-.828c.567-.566.879-1.32.879-2.121v-.172c0-1.654-1.346-3-3-3z"/>
+                    <path d="m52 33h2v2h-2z"/>
+                    <path d="m53 19c-5.514 0-10 4.486-10 10 0 3.983 2.383 7.577 6 9.156v4.979l5.038-4.198c5.052-.525 8.962-4.827 8.962-9.937 0-5.514-4.486-10-10-10zm.568 17.971-.322.022-2.246 1.872v-2.095l-.666-.235c-3.19-1.131-5.334-4.158-5.334-7.535 0-4.411 3.589-8 8-8s8 3.589 8 8c0 4.176-3.265 7.677-7.432 7.971z"/>
+                    <path d="m44 58h2v2h-2z"/>
+                    <path d="m48 58h2v2h-2z"/>
+                    <path d="m29 51h2v2h-2z"/>
+                    <path d="m29 55h2v2h-2z"/>
+                    <path d="m41 5h2v2h-2z"/>
+                    <path d="m45 5h2v2h-2z"/>
+                    <path d="m30 37h2v2h-2z"/>
+                    <path d="m34 37h2v2h-2z"/>
+                    <path d="m33 16.38v-11.88c0-1.93-1.57-3.5-3.5-3.5s-3.5 1.57-3.5 3.5v9.587l-5.748.525c1.085-1.233 1.748-2.845 1.748-4.612 0-3.859-3.141-7-7-7s-7 3.141-7 7c0 2.037.881 3.869 2.275 5.149-5.247.832-9.275 5.374-9.275 10.851v3c0 2.757 2.243 5 5 5h1v4 1 19.5c0 2.481 2.019 4.5 4.5 4.5 1.421 0 2.675-.675 3.5-1.706.825 1.031 2.079 1.706 3.5 1.706 2.481 0 4.5-2.019 4.5-4.5v-36.595l5.498-.55c2.566-.257 4.502-2.396 4.502-4.975zm-23-6.38c0-2.757 2.243-5 5-5s5 2.243 5 5-2.243 5-5 5-5-2.243-5-5zm3.5 24c1.93 0 3.5-1.57 3.5-3.5s-1.57-3.5-3.5-3.5h-4.5v-2h8v5.5 6.5h-8v-3zm-2 27c-1.379 0-2.5-1.121-2.5-2.5v-19.5h5v19.5c0 1.379-1.121 2.5-2.5 2.5zm9.5-40.905v38.405c0 1.379-1.121 2.5-2.5 2.5s-2.5-1.121-2.5-2.5v-19.5h3v-16h-12v4h-2v2h8.5c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5h-7.5c-1.654 0-3-1.346-3-3v-3c0-4.963 4.037-9 9-9l2.944-.003c.019 0 .037.003.056.003s.038-.003.058-.003l1.033-.001 11.909-1.083v-11.413c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5v11.88c0 1.548-1.161 2.831-2.701 2.985z"/>
+                  </svg>
+                  <div class="media-body">
+                    <h5 class="mt-0">Решение сложных правовых задач</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END ABOUT US-->
+
+    <!-- SERVICES-->
+    <section class="ftco-section-min2 bg-green " id="section-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center mb-5 ftco-animate">
+            <h2 class="text-uppercase ftco-uppercase">Направления&nbsp; деятельности</h2>
+            <!-- <div class="row justify-content-center">
+              <div class="col-md-7">
+                <p class="lead">Сережа что-нибудь придумает</p>
+              </div>
+            </div> -->
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Гражданские дела</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Наследственные дела</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Защита прав потребителей</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color"><b>Дистанционное</b> оказание услуг</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2  ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Уголовные дела</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Административные дела</h5>
+              </div>
+            </div>
+          </div>
+
+              <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Дела по <b>ДТП</b></h5>
+              </div>
+            </div>
+          </div>
+
+              <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Исполнительное производство</h5>
+              </div>
+            </div>
+          </div>
+              <div class="col-lg-4 col-md-6">
+            <div class="media d-block mb-4-for-cards text-center ftco-media  p-2 ftco-animate">
+              <div class="media-body">
+                <h5 class="mar-top-bot h5-color">Семейное право</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END SERVICES-->
+
+    <!-- PRICING-->
+    <section class="ftco-section-down ftco-slant" id="section-prices">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center ftco-animate">
+            <h2 class="text-uppercase ftco-uppercase">Стоимость&nbsp; услуг</h2>
+          </div>
+        </div>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header-new" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Юридические услуги
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body zhirny-text">
+                <table class="table">
+            <tbody>
+            <tr>
+                <td>Консультация и анализ документов</td>
+                <td>3&nbsp;000&nbsp;₽</td>
+            </tr>
+            <tr>
+                <td>Подготовка заявлений, ходатайств, жалоб, претензий, соглашений, проектов договоров, исковых заявлений</td>
+                <td>от 5&nbsp;000&nbsp;₽</td>
+            </tr>
+              <tr>
+              <td>Оформление, сбор документов в связи с ДТП в ГИБДД, органах следствия, обращение в страховую компанию за страховой выплатой</td>
+                <td>от 5&nbsp;000&nbsp;₽</td>
+            </tr>
+            </tbody>
+            </table>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+          <div class="card-header-new" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Гражданские дела
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body zhirny-text">
+              <table class="table">
+          <tbody>
+          <tr>
+              <td>Представление интересов у мирового судьи, в суде общей юрисдикции при рассмотрении дела по первой инстанции</td>
+              <td>от 20&nbsp;000&nbsp;₽</td>
+          </tr>
+          <tr>
+              <td>Апелляция, кассация, надзор</td>
+              <td>от 15&nbsp;000&nbsp;₽</td>
+          </tr>
+            <tr>
+            <td>Представление интересов в арбитражном суде при рассмотрении дела по первой инстанции</td>
+              <td>от 25&nbsp;000&nbsp;₽</td>
+          </tr>
+              <tr>
+            <td>Представление интересов в арбитражном суде при апелляционном, кассационном, надзорном рассмотрении дела</td>
+              <td>от 25&nbsp;000&nbsp;₽</td>
+          </tr>
+          </tbody>
+          </table>
+            </div>
+          </div>
+          </div>
+          <div class="card">
+          <div class="card-header-new" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Дела об административных правонарушениях
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body zhirny-text">
+              <table class="table">
+          <tbody>
+          <tr>
+              <td>Представление интересов при административном расследовании (в месяц)</td>
+              <td>от 20&nbsp;000&nbsp;₽</td>
+          </tr>
+          <tr>
+              <td>Представление интересов в суде за одну инстанцию</td>
+              <td>от 10&nbsp;000&nbsp;₽</td>
+          </tr>
+
+          </tbody>
+          </table>
+            </div>
+          </div>
+          </div>
+          <div class="card">
+          <div class="card-header-new" id="headingFourth">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFourth" aria-expanded="false" aria-controls="collapseFourth">
+                Административные дела
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFourth" class="collapse" aria-labelledby="headingFourth" data-parent="#accordion">
+            <div class="card-body zhirny-text">
+              <table class="table">
+          <tbody>
+          <tr>
+              <td>Представление интересов в суде первой инстанции</td>
+              <td>от 20&nbsp;000&nbsp;₽</td>
+          </tr>
+          <tr>
+              <td>Следующие инстанции</td>
+              <td>от 20&nbsp;000&nbsp;₽</td>
+          </tr>
+
+          </tbody>
+          </table>
+          </div>
+          </div>
+          </div>
+          <div class="card">
+          <div class="card-header-new" id="headingFifth">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed " data-toggle="collapse" data-target="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                Уголовные дела
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFifth" class="collapse" aria-labelledby="headingFifth" data-parent="#accordion">
+            <div class="card-body zhirny-text ">
+              <table class="table">
+          <tbody>
+          <tr>
+              <td>Представление интересов до возбуждения уголовного дела (в месяц)</td>
+              <td>от 20&nbsp;000&nbsp;₽</td>
+          </tr>
+          <tr>
+              <td>Представление интересов, защита на стадии предварительного расследования</td>
+              <td>от 50&nbsp;000&nbsp;₽ за первые 2&nbsp;мес., далее от 20&nbsp;000&nbsp;₽/&nbsp;мес. </td>
+          </tr>
+            <tr>
+              <td>Представление интересов, защита при судебном производстве (в месяц)</td>
+              <td>от 25&nbsp;000&nbsp;₽ </td>
+          </tr>
+              <tr>
+              <td>Представление интересов при исполнении приговора</td>
+              <td>от 15&nbsp;000&nbsp;₽ </td>
+          </tr>
+          </tbody>
+          </table>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- END row -->
+      </div>
+    </section>
+    <!-- END PRICING-->
+
+
+    <!-- CONTACTS -->
+    <section class="ftco-section-min bg-green ftco-slant ftco-slant-dark" id="section-contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6  ftco-animate">
+            <h2 class="text-uppercase ftco-uppercase">Контакты</h2>
+            <div class="row justify-content-leftside mb-6">
+              <div class="col-md-10">
+                <p class="zhirny-text">
+                  <br>
+                  <b>
+                    <a href="mailto:mail@адвокатшахты.рф">mail@адвокатшахты.рф</a>
+                  </b>
+                  <br><br>
+                  <b>Ростовская обл., г.&nbsp;Шахты</b>
+                  <br> ул.&nbsp;Советская, д.&nbsp;153, офис&nbsp;25
+                  <br> Тел.: <a href="tel:+79298210799">8&nbsp;929&nbsp;821-07-99</a>
+                  <br>  <br>
+                  <b>г.&nbsp;Ростов-на-Дону</b>
+                  <br> ул.&nbsp;Береговая, д.&nbsp;8, офис&nbsp;1304
+                  <br> Тел.: <a href="tel:+78632218218">8&nbsp;(863)&nbsp;2-218-218</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <iframe class="col-md-6"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2684.793012260666!2d40.21470431518771!3d47.70785597919144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e216a58ae8f6c9%3A0xb7117fba6da3eed5!2z0JDQtNCy0L7QutCw0YIg0J3QsNGC0LDQu9C10L3QutC-INCS0LvQsNC00LjQvNC40YAg0JDQvdCw0YLQvtC70YzQtdCy0LjRhw!5e0!3m2!1sru!2sru!4v1588616302462!5m2!1sru!2sru"
+            id="map"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen="" aria-hidden="false" tabindex="0">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOAT BUTTON -->
+    <a href="tel:+79298210799">
+      <div  class="circle-1 animated pulse infinite">
+        <div  class="circle-2 animated pulse infinite">
+          <div class="fa-phone">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+              width="24px" height="24px"
+              viewBox="0 0 171 171"
+              style=" fill:#000000;">
+              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-size="none" style="mix-blend-mode: normal">
+                <path d="M0,171.99231v-171.99231h171.99231v171.99231z" fill="none"></path>
+                <g fill="white">
+                  <path d="M147.23573,118.56445c-10.17368,-8.70929 -20.5272,-14.00165 -30.57242,-5.29237l-6.01172,5.24099c-4.39318,3.82798 -12.56295,21.6576 -44.13732,-14.69531c-31.57437,-36.27584 -12.79417,-41.92788 -8.3753,-45.70447l6.03741,-5.26668c9.99384,-8.70928 6.21724,-19.67938 -1.00195,-30.98347l-4.3418,-6.83384c-7.2449,-11.2527 -15.15776,-18.65174 -25.17728,-9.96815l-5.42082,4.75286c-4.44456,3.21139 -16.82768,13.71905 -19.83353,33.65535c-3.62244,23.91842 7.8101,51.33083 33.93795,81.38942c26.10216,30.08429 51.6905,45.19066 75.89153,44.93374c20.11613,-0.23122 32.29372,-11.02148 36.096,-14.95222l5.42082,-4.75285c10.01953,-8.6836 3.80228,-17.54703 -6.39709,-26.25631z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#4586ff"/>
+      </svg>
+    </div>
+{% endblock %}
+
+
+
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ url_for('.static', filename='js/main.js') }}"></script>
+{% endblock %}

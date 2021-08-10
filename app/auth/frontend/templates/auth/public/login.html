@@ -1,0 +1,23 @@
+{% extends "app/public/base.html" %}
+{% import "app/public/macro_messages.html" as messages with context %}
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('auth.static', filename='css/form.css') }}">
+{% endblock %}
+
+{% block main %}
+  {% include 'app/public/nav_bar.html' %}
+  {% block messages %}
+    {{ messages.messages() }}
+  {% endblock %}
+  <section class="ftco-section-down ftco-slant-first ftco-slant-light">
+    <form method="post" action="" class="form" role="form">
+      {{ form.login.label }}
+      {{ form.login }}
+      {{ form.password.label }}
+      {{ form.password }}
+      {{ form.submit }}
+    </form>
+  </section>
+
+{% endblock %}

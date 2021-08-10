@@ -1,0 +1,7 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+  <p>Hello, there!</p>
+  {% for user in users %}
+    <p>Login: {{ user.login }} Name:{{ user.name }}</p>
+  {% endfor %}
+{% endblock body %}
